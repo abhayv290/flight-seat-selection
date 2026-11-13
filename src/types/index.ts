@@ -31,4 +31,21 @@ export interface Passenger {
     mealId: string | null
 }
 
+export interface Notice {
+    type: 'error' | 'info'
+    message: string
+}
+export interface BookingState {
+    layout: LayoutId
+    activePassengerId: string
+    passengers: Passenger[]
+    notice: Notice | null
+}
 
+export type BookingAction =
+    { type: 'SET_PASSENGER_COUNT'; count: number }
+    | { type: 'SET_ACTIVE_PASSENGER'; passengerId: string }
+    | { type: 'SET_LAYOUT'; layout: LayoutId }
+    | { type: 'ASSIGN_SEAT'; seatId: string }
+    | { type: 'REMOVE_SEAT'; passengerId: string }
+    | { type: 'DISMISS_NOTICE'; }

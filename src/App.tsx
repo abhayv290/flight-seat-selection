@@ -1,14 +1,47 @@
-import { LAYOUTS } from "./types/layout";
-import { flattenSeats, generateSeatRows } from "./utils/seatHelpers";
+import { useBooking } from './context/BookingContext'
+
+const btn = 'rounded border border-slate-300 bg-white px-2 py-1 hover:bg-slate-100'
 
 export default function App() {
-  const rows = generateSeatRows(LAYOUTS['2-3-2'])
-  console.log(rows[0])
-  console.log(flattenSeats(rows).length)
-  return (
-    <div className="min-h-screen max-w-5xl p-8">
-      <h1 className="text-4xl font-bold text-center mx-auto">Flight Seat Selection</h1>
+  const { state, actions } = useBooking()
 
+  return (
+    <div className="space-y-4 p-6 font-mono text-sm">
+      <div className="flex flex-wrap gap-2">
+        {[1, 2, 3, 4].map((n) => (
+          <button key={n} className={btn} onClick={() => actions.setPassengerCount(n)}>
+            count {n}
+          </button>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        {state.passengers.map((p) => (
+          <button key={p.id} className={btn} onClick={() => actions.setActivePassenger(p.id)}>
+            select {p.name}
+          </button>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        {['1A', '1B', '2A', '8G'].map((id) => (
+          <button key={id} className={btn} onClick={() => actions.assignSeat(id)}>
+            seat {id}
+          </button>
+        ))}
+        <button className={btn} onClick={() => actions.removeSeat(state.activePassengerId)}>
+          remove active seat
+        </button>
+      </div>
+
+      <div className="flex gap-2">
+        <button className={btn} onClick={() => actions.setLayout('3-2')}>layout 3-2</button>
+        <button className={btn} onClick={() => actions.setLayout('2-3-2')}>layout 2-3-2</button>
+      </div>
+
+      <pre className="rounded bg-slate-900 p-4 text-green-300">
+        {JSON.stringify(state, null, 2)}
+      </pre>
     </div>
   )
 }

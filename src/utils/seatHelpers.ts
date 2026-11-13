@@ -1,5 +1,7 @@
-import type { LayoutConfig, Seat, SeatCategory, SeatRowData } from "../types";
+import { cache } from "react";
+import type { LayoutConfig, LayoutId, Seat, SeatCategory, SeatRowData } from "../types";
 import { CATEGORY_OVERRIDES, EXIT_ROWS, OCCUPIED_SEATS, PRICE_BY_CATEGORY, TOTAL_ROWS } from "../types/seats";
+import { LAYOUTS } from "../types/layout";
 
 function resolveCategory(row: number, column: string): SeatCategory {
     const seatId = `${row}${column}`
@@ -35,3 +37,17 @@ export function generateSeatRows(layout: LayoutConfig): SeatRowData[] {
 export function flattenSeats(rows: SeatRowData[]): Seat[] {
     return rows.flatMap(row => row.groups.flat())
 }
+
+
+const lookupCache = new Map<LayoutId, Map<string, Seat>>()
+
+export function getSeatLookup(layoutId: LayoutId): Map<string, Seat> {
+    const cached = lookupCache.get(layoutId)
+    if (cached) return cached
+
+    const seats = flattenSeats(generateSeatRows(LAYOUTS[layoutId]))
+    const lookups = new Map(seats.map(seat => [seat.id, seat]))
+    lookupCache.set(layoutId, lookups)
+    return lookups
+}
+
