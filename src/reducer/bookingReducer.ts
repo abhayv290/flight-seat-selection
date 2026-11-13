@@ -1,5 +1,5 @@
 import type { BookingAction, BookingState, Notice, Passenger } from "../types";
-import { LAYOUTS } from "../types/layout";
+import { LAYOUTS } from "../data/layout";
 import { getSeatLookup } from "../utils/seatHelpers";
 
 export const MIN_PASSENGERS = 1
@@ -8,6 +8,7 @@ export const MAX_PASSENGERS = 6
 function createPassenger(n: number): Passenger {
     return { id: `p${n}`, name: `Passenger ${n}`, seatId: null, mealId: null }
 }
+
 
 export const initialState: BookingState = {
     layout: '3-2',

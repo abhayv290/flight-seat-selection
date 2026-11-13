@@ -49,3 +49,11 @@ export type BookingAction =
     | { type: 'ASSIGN_SEAT'; seatId: string }
     | { type: 'REMOVE_SEAT'; passengerId: string }
     | { type: 'DISMISS_NOTICE'; }
+
+
+
+export type SeatStatus = 'available' | 'occupied' | 'selected' | 'taken'
+export interface SeatHolder {
+    passengerId: string
+    passengerNumber: number
+}

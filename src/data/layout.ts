@@ -1,4 +1,4 @@
-import type { LayoutConfig, LayoutId } from ".";
+import type { LayoutConfig, LayoutId } from "../types";
 
 export const LAYOUTS: Record<LayoutId, LayoutConfig> = {
     '3-2': {

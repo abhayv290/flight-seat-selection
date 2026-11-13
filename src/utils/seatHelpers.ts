@@ -1,7 +1,7 @@
-import { cache } from "react";
-import type { LayoutConfig, LayoutId, Seat, SeatCategory, SeatRowData } from "../types";
+
+import type { LayoutConfig, LayoutId, Seat, SeatCategory, SeatHolder, SeatRowData, SeatStatus } from "../types";
 import { CATEGORY_OVERRIDES, EXIT_ROWS, OCCUPIED_SEATS, PRICE_BY_CATEGORY, TOTAL_ROWS } from "../types/seats";
-import { LAYOUTS } from "../types/layout";
+import { LAYOUTS } from "../data/layout";
 
 function resolveCategory(row: number, column: string): SeatCategory {
     const seatId = `${row}${column}`
@@ -51,3 +51,12 @@ export function getSeatLookup(layoutId: LayoutId): Map<string, Seat> {
     return lookups
 }
 
+export function getSeatStatus(
+    seat: Seat,
+    holder: SeatHolder | undefined,
+    activePassengerId: string,
+): SeatStatus {
+    if (seat.isOccupied) return 'occupied'
+    if (!holder) return 'available'
+    return holder.passengerId === activePassengerId ? 'selected' : 'taken'
+}
