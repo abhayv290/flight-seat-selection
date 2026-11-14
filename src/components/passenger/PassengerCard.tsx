@@ -1,6 +1,6 @@
-import { CATEGORY_LABEL } from '../data/seats'
-import type { Meal, Passenger, Seat } from '../types'
-import { formatPrice } from '../utils/pricing'
+import { CATEGORY_LABEL } from '../../data/seats'
+import type { Meal, Passenger, Seat } from '../../types'
+import { formatPrice } from '../../utils/pricing'
 
 interface PassengerCardProps {
     passenger: Passenger

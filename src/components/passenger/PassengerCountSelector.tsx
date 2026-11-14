@@ -1,5 +1,5 @@
-import { useBooking } from '../context/BookingContext'
-import { MAX_PASSENGERS, MIN_PASSENGERS } from '../reducer/bookingReducer'
+import { useBooking } from '../../context/BookingContext'
+import { MAX_PASSENGERS, MIN_PASSENGERS } from '../../reducer/bookingReducer'
 
 const stepperButton =
     'flex h-9 w-9 items-center justify-center rounded-lg border border-slate-300 bg-white text-lg font-semibold text-slate-700 transition-colors hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-white'

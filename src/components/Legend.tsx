@@ -1,7 +1,7 @@
 import type { SeatCategory } from "../types";
 import { CATEGORY_LABEL, PRICE_BY_CATEGORY } from "../data/seats";
 import { formatPrice } from "../utils/pricing";
-import { CATEGORY_STYLES, STATUS_STYLES } from "./seatStyles";
+import { CATEGORY_STYLES, STATUS_STYLES } from './seats/seatStyles'
 
 
 const categories = Object.keys(CATEGORY_LABEL) as SeatCategory[]

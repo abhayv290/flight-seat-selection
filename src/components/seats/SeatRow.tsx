@@ -1,5 +1,5 @@
-import type { SeatHolder, SeatRowData } from "../types";
-import { getSeatStatus } from "../utils/seatHelpers";
+import type { SeatHolder, SeatRowData } from "../../types";
+import { getSeatStatus } from "../../utils/seatHelpers";
 import { Seat } from "./Seat";
 import { AISLE_GAP, ROW_LABEL_WIDTH, SEAT_GAP } from "./seatStyles";
 

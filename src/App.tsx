@@ -1,9 +1,9 @@
 import { MealPicker } from './components/MealPicker';
 import { NoticeToast } from './components/NoticeToast';
-import { PassengerCountSelector } from './components/PassengerCountSelector'
-import { PassengerList } from './components/PassengerList'
+import { PassengerCountSelector } from './components/passenger/PassengerCountSelector'
+import { PassengerList } from './components/passenger/PassengerList'
 import { PriceSummary } from './components/PriceSummary';
-import { SeatMapSection } from './components/SeatMapSection';
+import { SeatMapSection } from './components/seatMap/SeatMapSection';
 import { StickySummaryBar } from './components/StickySummaryBar';
 
 

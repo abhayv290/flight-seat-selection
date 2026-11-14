@@ -1,6 +1,6 @@
-import { useBooking } from '../context/BookingContext'
-import { MEAL_LOOKUP } from '../data/meals';
-import { getSeatLookup } from '../utils/seatHelpers'
+import { useBooking } from '../../context/BookingContext'
+import { MEAL_LOOKUP } from '../../data/meals';
+import { getSeatLookup } from '../../utils/seatHelpers'
 import { PassengerCard } from './PassengerCard'
 
 export function PassengerList() {

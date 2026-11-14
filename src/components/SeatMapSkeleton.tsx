@@ -1,7 +1,7 @@
 import { useBooking } from "../context/BookingContext";
 import { LAYOUTS } from "../data/layout";
 import { TOTAL_ROWS } from "../data/seats";
-import { AISLE_GAP, ROW_LABEL_WIDTH, SEAT_GAP, SEAT_MAP_CARD, SEAT_SIZE } from "./seatStyles";
+import { AISLE_GAP, ROW_LABEL_WIDTH, SEAT_GAP, SEAT_MAP_CARD, SEAT_SIZE } from "./Seat/seatStyles";
 
 export function SeatMapSkeleton() {
     const { state } = useBooking()

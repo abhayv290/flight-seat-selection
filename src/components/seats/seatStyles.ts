@@ -1,4 +1,4 @@
-import type { SeatCategory, SeatStatus } from '../types'
+import type { SeatCategory, SeatStatus } from '../../types'
 
 // Layout sizing (used by Seat, SeatRow and the column header)
 export const SEAT_SIZE = 'h-8 w-8 sm:h-10 sm:w-10'

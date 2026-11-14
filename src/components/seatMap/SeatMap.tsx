@@ -1,9 +1,10 @@
-import { useBooking } from "../context/BookingContext";
-import { LAYOUTS } from "../data/layout";
-import { generateSeatRows } from "../utils/seatHelpers";
-import type { SeatHolder } from "../types";
-import { AISLE_GAP, ROW_LABEL_WIDTH, SEAT_GAP, SEAT_MAP_CARD, SEAT_SIZE } from "./seatStyles";
-import { SeatRow } from "./SeatRow";
+import { useBooking } from "../../context/BookingContext";
+import { LAYOUTS } from "../../data/layout";
+import { generateSeatRows } from "../../utils/seatHelpers";
+import type { SeatHolder } from "../../types";
+import { AISLE_GAP, ROW_LABEL_WIDTH, SEAT_GAP, SEAT_MAP_CARD, SEAT_SIZE } from "../seats/seatStyles";
+import { SeatRow } from "../seats/SeatRow";
+
 
 export function SeatMap() {
     const { state, actions } = useBooking()

@@ -1,7 +1,7 @@
 import { useSeatMapLoader } from "../hooks/useSeatMapLoader";
 import { LayoutSwitcher } from "./LayoutSwitcher";
 import { Legend } from "./Legend";
-import { SeatMap } from "./SeatMap";
+import { SeatMap } from "./seatMap/SeatMap";
 import { SeatMapError } from "./SeatMapError";
 import { SeatMapSkeleton } from "./SeatMapSkeleton";
 
