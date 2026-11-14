@@ -102,3 +102,8 @@ src/
   types/       shared types
   utils/       pricing, seat helpers (+ tests)
 ```
+
+## ScreenShots
+
+![alt text](image.png)
+![alt text](image-1.png)
