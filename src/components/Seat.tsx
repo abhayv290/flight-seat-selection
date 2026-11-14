@@ -1,5 +1,5 @@
 import type { Seat, SeatStatus } from "../types";
-import { CATEGORY_LABEL } from "../types/seats";
+import { CATEGORY_LABEL } from "../data/seats";
 import { formatPrice } from "../utils/pricing";
 import { CATEGORY_STYLES, SEAT_SIZE, STATUS_STYLES } from "./seatStyles";
 

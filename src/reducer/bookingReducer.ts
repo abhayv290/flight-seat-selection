@@ -29,6 +29,15 @@ function updatePassenger(
     return passengers.map(ps => ps.id === id ? { ...ps, ...patch } : ps)
 }
 
+/** Next passenger- who has no seat yet*/
+function findNextWithoutSeat(passenger: Passenger[], fromIndex: number): Passenger | undefined {
+    for (let step = 1; step < passenger.length; step++) {
+        const candidate = passenger[(fromIndex + step) % passenger.length]
+        if (!candidate.seatId) return candidate
+    }
+    return undefined
+}
+
 export function bookingReducer(state: BookingState, action: BookingAction): BookingState {
     switch (action.type) {
         case 'SET_PASSENGER_COUNT': {
@@ -99,9 +108,16 @@ export function bookingReducer(state: BookingState, action: BookingAction): Book
             }
 
             //Free Seat => assign this also changes a previous seat automatically
+            const activeIndex = state.passengers.findIndex(p => p.id === state.activePassengerId)
+            const hadSeatBefore = state.passengers[activeIndex].seatId !== null
+            const passengers = updatePassenger(state.passengers, state.activePassengerId, { seatId: seat.id })
+
+            //Auto advance only on first a first time assignment
+            const nextPassenger = hadSeatBefore ? undefined : findNextWithoutSeat(passengers, activeIndex)
             return {
                 ...state,
-                passengers: updatePassenger(state.passengers, state.activePassengerId, { seatId: seat.id }),
+                passengers,
+                activePassengerId: nextPassenger?.id ?? state.activePassengerId,
                 notice: null
             }
         }

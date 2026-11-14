@@ -1,6 +1,6 @@
 
 import type { LayoutConfig, LayoutId, Seat, SeatCategory, SeatHolder, SeatRowData, SeatStatus } from "../types";
-import { CATEGORY_OVERRIDES, EXIT_ROWS, OCCUPIED_SEATS, PRICE_BY_CATEGORY, TOTAL_ROWS } from "../types/seats";
+import { CATEGORY_OVERRIDES, EXIT_ROWS, OCCUPIED_SEATS, PRICE_BY_CATEGORY, TOTAL_ROWS } from "../data/seats";
 import { LAYOUTS } from "../data/layout";
 
 function resolveCategory(row: number, column: string): SeatCategory {

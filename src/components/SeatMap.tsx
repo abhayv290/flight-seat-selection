@@ -6,7 +6,7 @@ import { AISLE_GAP, ROW_LABEL_WIDTH, SEAT_GAP, SEAT_SIZE } from "./seatStyles";
 import { SeatRow } from "./SeatRow";
 
 export function SeatMap() {
-    const { state } = useBooking()
+    const { state, actions } = useBooking()
     const layout = LAYOUTS[state.layout]
 
     const rows = generateSeatRows(layout)
@@ -45,6 +45,7 @@ export function SeatMap() {
                         row={row}
                         holders={holders}
                         activePassengerId={state.activePassengerId}
+                        onSelectSeat={actions.assignSeat}
                     />
                 ))}
             </div>

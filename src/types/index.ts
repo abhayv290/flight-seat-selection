@@ -57,3 +57,11 @@ export interface SeatHolder {
     passengerId: string
     passengerNumber: number
 }
+
+export interface PassengerCharges {
+    passengerId: string
+    seat: Seat | undefined
+    seatPrice: number
+    mealPrice: number
+    subTotal: number
+}
