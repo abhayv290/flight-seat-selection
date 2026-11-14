@@ -2,7 +2,7 @@ import { useBooking } from "../context/BookingContext";
 import { LAYOUTS } from "../data/layout";
 import { generateSeatRows } from "../utils/seatHelpers";
 import type { SeatHolder } from "../types";
-import { AISLE_GAP, ROW_LABEL_WIDTH, SEAT_GAP, SEAT_SIZE } from "./seatStyles";
+import { AISLE_GAP, ROW_LABEL_WIDTH, SEAT_GAP, SEAT_MAP_CARD, SEAT_SIZE } from "./seatStyles";
 import { SeatRow } from "./SeatRow";
 
 export function SeatMap() {
@@ -18,7 +18,7 @@ export function SeatMap() {
     })
 
     return (
-        <div className="overflow-x-auto rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+        <div className={SEAT_MAP_CARD}>
             <div className="mx-auto w-fit space-y-1.5">
                 {/* Column letters, built from the same groups so they line up */}
                 <div className="flex items-center justify-center gap-2">

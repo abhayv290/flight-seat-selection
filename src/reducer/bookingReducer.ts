@@ -1,6 +1,7 @@
 import type { BookingAction, BookingState, Notice, Passenger } from "../types";
 import { LAYOUTS } from "../data/layout";
 import { getSeatLookup } from "../utils/seatHelpers";
+import { MEAL_LOOKUP } from "../data/meals";
 
 export const MIN_PASSENGERS = 1
 export const MAX_PASSENGERS = 6
@@ -131,6 +132,17 @@ export function bookingReducer(state: BookingState, action: BookingAction): Book
         }
         case 'DISMISS_NOTICE': {
             return { ...state, notice: null }
+        }
+        case 'SET_MEAL': {
+            if (action.mealId !== null && !MEAL_LOOKUP.has(action.mealId)) {
+                return withNotice(state, { type: 'error', message: 'That meal is not available' })
+            }
+            return {
+                ...state,
+                passengers: updatePassenger(state.passengers, action.passengerId, {
+                    mealId: action.mealId
+                }), notice: null
+            }
         }
         default:
             return state

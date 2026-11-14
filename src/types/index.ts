@@ -49,6 +49,7 @@ export type BookingAction =
     | { type: 'ASSIGN_SEAT'; seatId: string }
     | { type: 'REMOVE_SEAT'; passengerId: string }
     | { type: 'DISMISS_NOTICE'; }
+    | { type: 'SET_MEAL', passengerId: string, mealId: string | null }
 
 
 
@@ -61,7 +62,16 @@ export interface SeatHolder {
 export interface PassengerCharges {
     passengerId: string
     seat: Seat | undefined
+    meal: Meal | undefined
     seatPrice: number
     mealPrice: number
     subTotal: number
+}
+
+export interface Meal {
+    id: string
+    name: string
+    description: string
+    price: number
+    isVegetarian: boolean
 }

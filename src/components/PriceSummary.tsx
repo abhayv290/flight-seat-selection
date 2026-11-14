@@ -19,23 +19,35 @@ export function PriceSummary() {
             {seatsSelected === 0 && (
                 <p className="text-sm text-slate-500">No seats selected yet. Pick a seat on the map.</p>
             )}
-
+            {seatsSelected > 0 && seatsSelected === passengers.length && (
+                <p className='rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-800 '>
+                    All passengers have seats . You can still change any of them
+                </p>
+            )}
             <ul className="divide-y divide-slate-100">
                 {charges.map((charge, index) => (
-                    <li key={charge.passengerId} className="flex items-start justify-between gap-3 py-2">
-                        <div className="min-w-0">
-                            <p className="truncate text-sm font-medium text-slate-800">
-                                {passengers[index].name}
-                            </p>
-                            <p className="text-xs text-slate-500">
-                                {charge.seat
-                                    ? `Seat ${charge.seat.id} · ${CATEGORY_LABEL[charge.seat.category]}`
-                                    : 'No seat selected'}
-                            </p>
-                        </div>
-                        <span className="text-sm font-medium text-slate-700">
-                            {charge.seat ? formatPrice(charge.seatPrice) : '—'}
-                        </span>
+                    <li key={charge.passengerId} className="py-2">
+                        <p className="truncate text-sm font-medium text-slate-800">{passengers[index].name}</p>
+
+                        <dl className="mt-1 space-y-0.5 text-xs text-slate-500">
+                            <div className="flex justify-between gap-3">
+                                <dt>
+                                    {charge.seat
+                                        ? `Seat ${charge.seat.id} · ${CATEGORY_LABEL[charge.seat.category]}`
+                                        : 'No seat selected'}
+                                </dt>
+                                <dd className="font-medium text-slate-700">
+                                    {charge.seat ? formatPrice(charge.seatPrice) : '—'}
+                                </dd>
+                            </div>
+
+                            <div className="flex justify-between gap-3">
+                                <dt>{charge.meal ? charge.meal.name : 'No meal'}</dt>
+                                <dd className="font-medium text-slate-700">
+                                    {charge.meal ? formatPrice(charge.mealPrice) : '—'}
+                                </dd>
+                            </div>
+                        </dl>
                     </li>
                 ))}
             </ul>

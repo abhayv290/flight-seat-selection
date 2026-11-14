@@ -1,11 +1,12 @@
 import { CATEGORY_LABEL } from '../data/seats'
-import type { Passenger, Seat } from '../types'
+import type { Meal, Passenger, Seat } from '../types'
 import { formatPrice } from '../utils/pricing'
 
 interface PassengerCardProps {
     passenger: Passenger
     passengerNumber: number
     seat?: Seat
+    meal?: Meal
     isActive: boolean
     onSelect: () => void
     onRemove: () => void
@@ -15,6 +16,7 @@ export function PassengerCard({
     passenger,
     passengerNumber,
     seat,
+    meal,
     isActive,
     onSelect,
     onRemove,
@@ -58,6 +60,9 @@ export function PassengerCard({
 
                 {seat && (
                     <span className="text-sm font-semibold text-slate-700">{formatPrice(seat.price)}</span>
+                )}
+                {meal && (
+                    <span className='block truncate text-xs text-slate-500 '>🍴 {meal.name}</span>
                 )}
             </button>
             {seat && <div className='border-t border-slate-100 px-3 py-2 text-right'>

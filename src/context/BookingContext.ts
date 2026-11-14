@@ -7,7 +7,8 @@ export interface BookingActions {
     setLayout: (layout: LayoutId) => void
     assignSeat: (seatId: string) => void
     removeSeat: (passengerId: string) => void
-    dismissNotice: () => void
+    dismissNotice: () => void,
+    setMeal: (passengerId: string, mealId: string | null) => void
 }
 
 export interface BookingContextValue {

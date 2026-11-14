@@ -1,10 +1,9 @@
-import { LayoutSwitcher } from './components/LayoutSwitcher'
-import { Legend } from './components/Legend';
+import { MealPicker } from './components/MealPicker';
 import { NoticeToast } from './components/NoticeToast';
 import { PassengerCountSelector } from './components/PassengerCountSelector'
 import { PassengerList } from './components/PassengerList'
 import { PriceSummary } from './components/PriceSummary';
-import { SeatMap } from './components/SeatMap';
+import { SeatMapSection } from './components/SeatMapSection';
 import { StickySummaryBar } from './components/StickySummaryBar';
 
 
@@ -28,12 +27,10 @@ export default function App() {
             </div>
             <PriceSummary />
           </section>
-
-          <section className="space-y-4 lg:col-start-1 lg:row-start-1">
-            <LayoutSwitcher />
-            <Legend />
-            <SeatMap />
-          </section>
+          <SeatMapSection />
+          <div className="lg:col-start-1 lg:row-start-2">
+            <MealPicker />
+          </div>
         </div>
       </div>
       <StickySummaryBar />

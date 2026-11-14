@@ -1,3 +1,4 @@
+import { MEAL_LOOKUP } from "../data/meals";
 import type { Passenger, PassengerCharges, Seat } from "../types";
 
 export function formatPrice(amount: number): string {
@@ -15,11 +16,13 @@ export function getPassengerCharges(
 ): PassengerCharges {
     const seat = passenger.seatId ? seatLookup.get(passenger.seatId) : undefined
     const seatPrice = seat?.price ?? 0
-    const mealPrice = 0
+    const meal = passenger.mealId ? MEAL_LOOKUP.get(passenger.mealId) : undefined
+    const mealPrice = meal?.price ?? 0
     return {
         passengerId: passenger.id,
         seat,
         seatPrice,
+        meal,
         mealPrice,
         subTotal: seatPrice + mealPrice
     }

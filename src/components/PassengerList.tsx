@@ -1,4 +1,5 @@
 import { useBooking } from '../context/BookingContext'
+import { MEAL_LOOKUP } from '../data/meals';
 import { getSeatLookup } from '../utils/seatHelpers'
 import { PassengerCard } from './PassengerCard'
 
@@ -14,6 +15,7 @@ export function PassengerList() {
                         passenger={passenger}
                         passengerNumber={index + 1}
                         seat={passenger.seatId ? seatLookup.get(passenger.seatId) : undefined}
+                        meal={passenger.mealId ? MEAL_LOOKUP.get(passenger.mealId) : undefined}
                         isActive={passenger.id === state.activePassengerId}
                         onSelect={() => actions.setActivePassenger(passenger.id)}
                         onRemove={() => actions.removeSeat(passenger.id)}

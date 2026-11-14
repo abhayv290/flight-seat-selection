@@ -3,7 +3,7 @@ import type { SeatCategory, SeatStatus } from '../types'
 // Layout sizing (used by Seat, SeatRow and the column header)
 export const SEAT_SIZE = 'h-8 w-8 sm:h-10 sm:w-10'
 export const SEAT_GAP = 'gap-1.5'
-export const AISLE_GAP = 'gap-4 sm:gap-8'
+export const AISLE_GAP = 'gap-3 sm:gap-8'
 export const ROW_LABEL_WIDTH = 'w-6 shrink-0'
 
 export const CATEGORY_STYLES: Record<SeatCategory, string> = {
@@ -17,3 +17,5 @@ export const STATUS_STYLES: Record<Exclude<SeatStatus, 'available'>, string> = {
     selected: 'border-blue-600 bg-blue-600 text-white shadow-md',
     taken: 'border-emerald-500 bg-emerald-100 text-emerald-800',
 }
+export const SEAT_MAP_CARD = 'overflow-x-auto rounded-3xl border border-slate-200 bg-white p-3 shadow-sm sm:p-6'
+

@@ -13,7 +13,8 @@ export function BookingProvider({ children }: {
         setLayout: (layout) => dispatch({ type: 'SET_LAYOUT', layout }),
         assignSeat: (seatId) => dispatch({ type: 'ASSIGN_SEAT', seatId }),
         removeSeat: (passengerId) => dispatch({ type: 'REMOVE_SEAT', passengerId }),
-        dismissNotice: () => dispatch({ type: 'DISMISS_NOTICE' })
+        dismissNotice: () => dispatch({ type: 'DISMISS_NOTICE' }),
+        setMeal: (passengerId, mealId) => dispatch({ type: 'SET_MEAL', passengerId, mealId })
     }
     return <BookingContext.Provider value={{ state, actions }}>{children}</BookingContext.Provider>
 }
